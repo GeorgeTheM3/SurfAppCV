@@ -20,6 +20,7 @@
 		5E0BFFE52A791A5500C243FD /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE42A791A5500C243FD /* CustomHeader.swift */; };
 		5E0BFFE72A79228600C243FD /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE62A79228600C243FD /* Delegates.swift */; };
 		5E0BFFE92A792F1100C243FD /* LeftAlignmentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */; };
+		5E0BFFEB2A7931D200C243FD /* Extensio + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFEA2A7931D200C243FD /* Extensio + String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5E0BFFE42A791A5500C243FD /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		5E0BFFE62A79228600C243FD /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignmentCollection.swift; sourceTree = "<group>"; };
+		5E0BFFEA2A7931D200C243FD /* Extensio + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensio + String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				5E0BFFDE2A78F83900C243FD /* Extension + UIView.swift */,
 				5E0BFFE02A79135A00C243FD /* Extension + UIFont.swift */,
 				5E0BFFE22A79147F00C243FD /* Extension + UIImage.swift */,
+				5E0BFFEA2A7931D200C243FD /* Extensio + String.swift */,
 				5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */,
 				5E0BFFE62A79228600C243FD /* Delegates.swift */,
 			);
@@ -177,6 +180,7 @@
 				5E0BFFC32A78EC2A00C243FD /* AppDelegate.swift in Sources */,
 				5E0BFFDA2A78EF3A00C243FD /* MySkillsCell.swift in Sources */,
 				5E0BFFDF2A78F83900C243FD /* Extension + UIView.swift in Sources */,
+				5E0BFFEB2A7931D200C243FD /* Extensio + String.swift in Sources */,
 				5E0BFFD82A78ECC100C243FD /* ProfileTableView.swift in Sources */,
 				5E0BFFDC2A78EF6300C243FD /* ProfileHeader.swift in Sources */,
 				5E0BFFE32A79147F00C243FD /* Extension + UIImage.swift in Sources */,
