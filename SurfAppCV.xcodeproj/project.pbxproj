@@ -19,6 +19,7 @@
 		5E0BFFE32A79147F00C243FD /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE22A79147F00C243FD /* Extension + UIImage.swift */; };
 		5E0BFFE52A791A5500C243FD /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE42A791A5500C243FD /* CustomHeader.swift */; };
 		5E0BFFE72A79228600C243FD /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE62A79228600C243FD /* Delegates.swift */; };
+		5E0BFFE92A792F1100C243FD /* LeftAlignmentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5E0BFFE22A79147F00C243FD /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 		5E0BFFE42A791A5500C243FD /* CustomHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		5E0BFFE62A79228600C243FD /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
+		5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignmentCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				5E0BFFDE2A78F83900C243FD /* Extension + UIView.swift */,
 				5E0BFFE02A79135A00C243FD /* Extension + UIFont.swift */,
 				5E0BFFE22A79147F00C243FD /* Extension + UIImage.swift */,
+				5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */,
 				5E0BFFE62A79228600C243FD /* Delegates.swift */,
 			);
 			path = Helper;
@@ -180,6 +183,7 @@
 				5E0BFFE72A79228600C243FD /* Delegates.swift in Sources */,
 				5E0BFFC52A78EC2A00C243FD /* SceneDelegate.swift in Sources */,
 				5E0BFFE12A79135A00C243FD /* Extension + UIFont.swift in Sources */,
+				5E0BFFE92A792F1100C243FD /* LeftAlignmentCollection.swift in Sources */,
 				5E0BFFE52A791A5500C243FD /* CustomHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
