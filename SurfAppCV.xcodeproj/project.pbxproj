@@ -15,6 +15,8 @@
 		5E0BFFDA2A78EF3A00C243FD /* MySkillsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFD92A78EF3A00C243FD /* MySkillsCell.swift */; };
 		5E0BFFDC2A78EF6300C243FD /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFDB2A78EF6300C243FD /* ProfileHeader.swift */; };
 		5E0BFFDF2A78F83900C243FD /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFDE2A78F83900C243FD /* Extension + UIView.swift */; };
+		5E0BFFE12A79135A00C243FD /* Extension + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE02A79135A00C243FD /* Extension + UIFont.swift */; };
+		5E0BFFE32A79147F00C243FD /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE22A79147F00C243FD /* Extension + UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		5E0BFFD92A78EF3A00C243FD /* MySkillsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySkillsCell.swift; sourceTree = "<group>"; };
 		5E0BFFDB2A78EF6300C243FD /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		5E0BFFDE2A78F83900C243FD /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		5E0BFFE02A79135A00C243FD /* Extension + UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIFont.swift"; sourceTree = "<group>"; };
+		5E0BFFE22A79147F00C243FD /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				5E0BFFDE2A78F83900C243FD /* Extension + UIView.swift */,
+				5E0BFFE02A79135A00C243FD /* Extension + UIFont.swift */,
+				5E0BFFE22A79147F00C243FD /* Extension + UIImage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -164,7 +170,9 @@
 				5E0BFFDF2A78F83900C243FD /* Extension + UIView.swift in Sources */,
 				5E0BFFD82A78ECC100C243FD /* ProfileTableView.swift in Sources */,
 				5E0BFFDC2A78EF6300C243FD /* ProfileHeader.swift in Sources */,
+				5E0BFFE32A79147F00C243FD /* Extension + UIImage.swift in Sources */,
 				5E0BFFC52A78EC2A00C243FD /* SceneDelegate.swift in Sources */,
+				5E0BFFE12A79135A00C243FD /* Extension + UIFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
