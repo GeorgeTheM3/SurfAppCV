@@ -9,14 +9,16 @@ import UIKit
 
 class SkillCell: UICollectionViewCell {
     static let reuseID = "SkillCell"
+    
     weak var passInfoBack: DelegateToController?
     
     private lazy var deleteButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .red
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.addTarget(self, action: #selector(actionButton), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(actionButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)
         return button
     }()
     
@@ -34,6 +36,7 @@ class SkillCell: UICollectionViewCell {
     
     @objc private func actionButton() {
         tapButtonAnimation()
+        
     }
     
     override init(frame: CGRect) {
@@ -51,14 +54,8 @@ class SkillCell: UICollectionViewCell {
         UIView.animate(withDuration: 0.2) {
             self.skillLabel.alpha = 0
             self.deleteButton.alpha = 0
-        } completion: { _ in
-            UIView.animate(withDuration: 0.2) {
-                self.skillLabel.alpha = 1
-                self.deleteButton.alpha = 1
-//                self.passInfoBack?.passInfoBack(info: (self, self.hobbyLabel.text))
-            }
-            self.skillLabel.layoutIfNeeded()
         }
+        self.skillLabel.layoutIfNeeded()
     }
     
     private func setConstraintsSubviews() {
@@ -80,10 +77,17 @@ extension SkillCell: DelegateToView {
     func passToView<T>(_ info: T) {
         if let text = info as? Skill {
             skillLabel.text = text.title
+            deleteButton.tag = text.id
         }
         
         if let status = info as? Bool {
             deleteButton.isHidden = status
         }
+    }
+}
+
+extension SkillCell {
+    @objc private func deleteAction() {
+        passInfoBack?.passToController(deleteButton.tag)
     }
 }

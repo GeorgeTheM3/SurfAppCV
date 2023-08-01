@@ -12,7 +12,7 @@ class MySkillsCell: UITableViewCell {
     
     private weak var delegateToView: DelegateToView?
     
-    private var buttonIsHiddenStatus = true
+    private var buttonIsHiddenStatus = false
     
     private var skills: [Skill] = []
     
@@ -42,13 +42,17 @@ class MySkillsCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let addWidth: CGFloat = buttonIsHiddenStatus ? 40 : 60
+        configureHeight()
+    }
+    
+    private func configureHeight() {
+        let addWidth: CGFloat = buttonIsHiddenStatus ? 40 : 70
         var height:CGFloat = 40
         var widthLine: CGFloat = 0
         var numberLines:CGFloat = 1
         let collectionWidth = UIScreen.main.bounds.width - 40
-        for str in skills {
-            let width = CGFloat(Int(String().getTextWidth(str.title) + addWidth))
+        for item in skills {
+            let width = CGFloat(Int(String().getTextWidth(item.title) + addWidth))
             widthLine += width
             if collectionWidth < widthLine {
                 height += 52
@@ -80,6 +84,7 @@ extension MySkillsCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SkillCell.reuseID, for: indexPath) as? SkillCell else { return UICollectionViewCell()}
         let skill = skills[indexPath.row]
+        cell.passInfoBack = self
         delegateToView = cell
         delegateToView?.passToView(skill)
         delegateToView?.passToView(buttonIsHiddenStatus)
@@ -104,5 +109,13 @@ extension MySkillsCell: DelegateToView {
             layoutSubviews()
         }
     }
+}
 
+extension MySkillsCell: DelegateToController {
+    func passToController<T>(_ info: T) {
+        if let skillID = info as? Int {
+            skills.removeAll(where: {$0.id == skillID})
+            collectionView.reloadData()
+        }
+    }
 }
