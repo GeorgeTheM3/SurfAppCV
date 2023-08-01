@@ -20,8 +20,8 @@ class StorageService: StorageServiceProtocol {
     
     func addSkill(_ skill: Skill) {
         let index = storage.userSkills.count - 1
-        if skill.title.count > 20 {
-            let shortTitle = skill.title.prefix(20)
+        if skill.title.count > 25 {
+            let shortTitle = skill.title.prefix(25)
             storage.userSkills.insert(Skill(title: String(shortTitle + "..."), id: skill.id), at: index)
         } else {
             storage.userSkills.insert(skill, at: index)
