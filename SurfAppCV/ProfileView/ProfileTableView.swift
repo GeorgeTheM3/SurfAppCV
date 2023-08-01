@@ -116,6 +116,7 @@ extension ProfileTableView: UITableViewDelegate {
     }
 }
 
+//MARK: DelegateToController
 extension ProfileTableView: DelegateToController {
     func passToController<T>(_ info: T) {
         if let skillID = info as? Int {
@@ -140,8 +141,8 @@ extension ProfileTableView {
     private func showAlertController() {
         let alertController = UIAlertController(title: "Добавление навыка", message: "Введите название навыка которым вы владеете", preferredStyle: .alert)
         alertController.addTextField()
-        let cancelAction = UIAlertAction(title: "Отменить", style: .default)
-        let addAction = UIAlertAction(title: "Добавить", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "Отменить", style: .cancel)
+        let addAction = UIAlertAction(title: "Добавить", style: .default) { _ in
             guard let text = alertController.textFields?.first?.text else { return }
             self.storageService.addSkill(Skill(title: text))
             self.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)

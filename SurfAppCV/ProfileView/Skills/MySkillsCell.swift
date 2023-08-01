@@ -83,6 +83,7 @@ class MySkillsCell: UITableViewCell {
     }
 }
 
+//MARK: UICollectionViewDataSource
 extension MySkillsCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         skills.count
@@ -99,6 +100,7 @@ extension MySkillsCell: UICollectionViewDataSource {
     }
 }
 
+//MARK: UICollectionViewDelegateFlowLayout
 extension MySkillsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let string = skills[indexPath.row].title
@@ -115,6 +117,7 @@ extension MySkillsCell: UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: DelegateToView
 extension MySkillsCell: DelegateToView {
     func passToView<T>(_ info: T) {
         if let skills = info as? [Skill] {
@@ -128,6 +131,7 @@ extension MySkillsCell: DelegateToView {
     }
 }
 
+//MARK: DelegateToController
 extension MySkillsCell: DelegateToController {
     func passToController<T>(_ info: T) {
         if let skillID = info as? Int {

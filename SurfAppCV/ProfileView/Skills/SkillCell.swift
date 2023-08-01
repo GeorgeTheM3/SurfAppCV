@@ -59,6 +59,7 @@ class SkillCell: UICollectionViewCell {
     }
 }
 
+//MARK: DelegateToView
 extension SkillCell: DelegateToView {
     func passToView<T>(_ info: T) {
         if let text = info as? Skill {
@@ -74,6 +75,7 @@ extension SkillCell: DelegateToView {
     }
 }
 
+//MARK: Actions
 extension SkillCell {
     @objc private func deleteAction() {
         passInfoBack?.passToController(self.deleteButton.tag)

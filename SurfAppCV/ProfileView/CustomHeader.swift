@@ -63,6 +63,7 @@ class CustomHeader: UITableViewHeaderFooterView {
     }
 }
 
+//MARK: DelegateToView
 extension CustomHeader: DelegateToView {
     func passToView<T>(_ info: T) {
         if let image = info as? UIImage {
@@ -75,6 +76,7 @@ extension CustomHeader: DelegateToView {
     }
 }
 
+//MARK: Action
 extension CustomHeader {
     @objc func editAction() {
         delegateToController?.passToController(self)
