@@ -79,11 +79,11 @@ class ProfileHeader: UITableViewHeaderFooterView {
             nameLabel.centerXAnchor.constraint(equalTo: photoImageView.centerXAnchor),
             nameLabel.widthAnchor.constraint(equalToConstant: screenSize.width * 0.7),
             
-            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            descriptionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
             descriptionLabel.centerXAnchor.constraint(equalTo: photoImageView.centerXAnchor),
             descriptionLabel.widthAnchor.constraint(equalToConstant: screenSize.width * 0.85),
             
-            locationLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 6),
+            locationLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 5),
             locationLabel.centerXAnchor.constraint(equalTo: photoImageView.centerXAnchor, constant: 3),
             
             pinImageView.topAnchor.constraint(equalTo: locationLabel.topAnchor),
