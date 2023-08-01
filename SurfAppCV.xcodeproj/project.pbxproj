@@ -21,6 +21,10 @@
 		5E0BFFE72A79228600C243FD /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE62A79228600C243FD /* Delegates.swift */; };
 		5E0BFFE92A792F1100C243FD /* LeftAlignmentCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */; };
 		5E0BFFEB2A7931D200C243FD /* Extensio + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFEA2A7931D200C243FD /* Extensio + String.swift */; };
+		5E0BFFEE2A79351100C243FD /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFED2A79351100C243FD /* SkillCell.swift */; };
+		5E0BFFF32A794DBB00C243FD /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFF22A794DBB00C243FD /* LocalStorage.swift */; };
+		5E0BFFF52A794F1900C243FD /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFF42A794F1900C243FD /* StorageService.swift */; };
+		5E0BFFF72A794F2A00C243FD /* StorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0BFFF62A794F2A00C243FD /* StorageServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		5E0BFFE62A79228600C243FD /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		5E0BFFE82A792F1100C243FD /* LeftAlignmentCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignmentCollection.swift; sourceTree = "<group>"; };
 		5E0BFFEA2A7931D200C243FD /* Extensio + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensio + String.swift"; sourceTree = "<group>"; };
+		5E0BFFED2A79351100C243FD /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
+		5E0BFFF22A794DBB00C243FD /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		5E0BFFF42A794F1900C243FD /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		5E0BFFF62A794F2A00C243FD /* StorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 				5E0BFFC22A78EC2A00C243FD /* AppDelegate.swift */,
 				5E0BFFC42A78EC2A00C243FD /* SceneDelegate.swift */,
 				5E0BFFDD2A78F7F600C243FD /* Helper */,
+				5E0BFFEF2A794D8B00C243FD /* Storage */,
 				5E0BFFD62A78EC9800C243FD /* ProfileView */,
 				5E0BFFCB2A78EC2B00C243FD /* Assets.xcassets */,
 				5E0BFFCD2A78EC2C00C243FD /* LaunchScreen.storyboard */,
@@ -87,9 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				5E0BFFD72A78ECC100C243FD /* ProfileTableView.swift */,
-				5E0BFFD92A78EF3A00C243FD /* MySkillsCell.swift */,
 				5E0BFFDB2A78EF6300C243FD /* ProfileHeader.swift */,
 				5E0BFFE42A791A5500C243FD /* CustomHeader.swift */,
+				5E0BFFEC2A7934F100C243FD /* Skills */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -105,6 +114,25 @@
 				5E0BFFE62A79228600C243FD /* Delegates.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		5E0BFFEC2A7934F100C243FD /* Skills */ = {
+			isa = PBXGroup;
+			children = (
+				5E0BFFD92A78EF3A00C243FD /* MySkillsCell.swift */,
+				5E0BFFED2A79351100C243FD /* SkillCell.swift */,
+			);
+			path = Skills;
+			sourceTree = "<group>";
+		};
+		5E0BFFEF2A794D8B00C243FD /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5E0BFFF22A794DBB00C243FD /* LocalStorage.swift */,
+				5E0BFFF42A794F1900C243FD /* StorageService.swift */,
+				5E0BFFF62A794F2A00C243FD /* StorageServiceProtocol.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,13 +210,17 @@
 				5E0BFFDF2A78F83900C243FD /* Extension + UIView.swift in Sources */,
 				5E0BFFEB2A7931D200C243FD /* Extensio + String.swift in Sources */,
 				5E0BFFD82A78ECC100C243FD /* ProfileTableView.swift in Sources */,
+				5E0BFFF32A794DBB00C243FD /* LocalStorage.swift in Sources */,
 				5E0BFFDC2A78EF6300C243FD /* ProfileHeader.swift in Sources */,
 				5E0BFFE32A79147F00C243FD /* Extension + UIImage.swift in Sources */,
+				5E0BFFEE2A79351100C243FD /* SkillCell.swift in Sources */,
 				5E0BFFE72A79228600C243FD /* Delegates.swift in Sources */,
+				5E0BFFF52A794F1900C243FD /* StorageService.swift in Sources */,
 				5E0BFFC52A78EC2A00C243FD /* SceneDelegate.swift in Sources */,
 				5E0BFFE12A79135A00C243FD /* Extension + UIFont.swift in Sources */,
 				5E0BFFE92A792F1100C243FD /* LeftAlignmentCollection.swift in Sources */,
 				5E0BFFE52A791A5500C243FD /* CustomHeader.swift in Sources */,
+				5E0BFFF72A794F2A00C243FD /* StorageServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
