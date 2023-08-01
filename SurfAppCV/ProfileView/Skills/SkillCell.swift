@@ -14,7 +14,7 @@ class SkillCell: UICollectionViewCell {
     
     private lazy var deleteButton: UIButton = {
         let button = UIButton(type: .system)
-        button.tintColor = .red
+        button.tintColor = .systemGray
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)

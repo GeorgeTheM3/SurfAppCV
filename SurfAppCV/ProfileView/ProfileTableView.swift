@@ -12,6 +12,8 @@ class ProfileTableView: UIViewController {
     
     private var storageService = StorageService()
     
+    private var hideDeleteSkillButton: Bool = true
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), style: .grouped)
         tableView.separatorStyle = .none
@@ -57,6 +59,7 @@ extension ProfileTableView: UITableViewDataSource {
             if indexPath.section == 1 {
                 cell.delegateToConroller = self
                 delegateToView = cell
+                delegateToView?.passToView(hideDeleteSkillButton)
                 delegateToView?.passToView(storageService.getSkillsList())
                 cell.selectionStyle = .none
                 return cell
@@ -87,6 +90,9 @@ extension ProfileTableView: UITableViewDelegate {
             }
         case 1:
             delegateToView?.passToView(section)
+            let buttonImage: UIImage = hideDeleteSkillButton ? .pencil : .done
+            delegateToView?.passToView(buttonImage)
+            standartHeader.delegateToController = self
             return standartHeader
         case 2:
             delegateToView?.passToView(section)
@@ -115,7 +121,11 @@ extension ProfileTableView: DelegateToController {
         if let skillID = info as? Int {
             storageService.removeSkill(skillID)
             tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
-//            tableView.reloadData()
+        }
+        
+        if let _ = info as? CustomHeader {
+            hideDeleteSkillButton = !hideDeleteSkillButton
+            tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
         }
     }
 }

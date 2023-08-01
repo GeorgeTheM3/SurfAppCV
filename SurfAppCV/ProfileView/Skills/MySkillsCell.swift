@@ -13,7 +13,7 @@ class MySkillsCell: UITableViewCell {
     private weak var delegateToView: DelegateToView?
     weak var delegateToConroller: DelegateToController?
     
-    private var buttonIsHiddenStatus = false
+    private var buttonIsHiddenStatus = true
     
     private var skills: [Skill] = [] {
         didSet {
@@ -114,6 +114,12 @@ extension MySkillsCell: DelegateToView {
         if let skills = info as? [Skill] {
             self.skills = skills
             layoutSubviews()
+        }
+        
+        if let buttonStatus = info as? Bool {
+            buttonIsHiddenStatus = buttonStatus
+//            delegateToConroller?.passToController(buttonStatus)
+//            collectionView.reloadData()
         }
     }
 }

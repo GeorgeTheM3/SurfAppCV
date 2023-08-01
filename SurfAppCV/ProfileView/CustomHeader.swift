@@ -10,6 +10,10 @@ import UIKit
 class CustomHeader: UITableViewHeaderFooterView {
     static let reuseID = "CustomHeader"
     
+    weak var delegateToController: DelegateToController?
+    
+    private var currentButtonImage: UIImage = .pencil
+    
     private lazy var background: UIView = {
        let view = UIView()
         view.backgroundColor = .white
@@ -25,8 +29,9 @@ class CustomHeader: UITableViewHeaderFooterView {
     
     private lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(.pencil, for: .normal)
+        button.setImage(currentButtonImage, for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(editAction), for: .touchUpInside)
         return button
     }()
     
@@ -60,8 +65,19 @@ class CustomHeader: UITableViewHeaderFooterView {
 
 extension CustomHeader: DelegateToView {
     func passToView<T>(_ info: T) {
+        if let image = info as? UIImage {
+            editButton.setImage(image, for: .normal)
+        }
+        
         guard let indexSection = info as? Int else { return }
         titleLabel.text = indexSection == 1 ? "Мои навыки" : "О себе"
         editButton.isHidden = indexSection == 1 ? false : true
+        
+    }
+}
+
+extension CustomHeader {
+    @objc func editAction() {
+        delegateToController?.passToController(self)
     }
 }
