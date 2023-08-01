@@ -8,6 +8,8 @@
 import UIKit
 
 class ProfileTableView: UIViewController {
+    private weak var delegateToView: DelegateToView?
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), style: .grouped)
         tableView.separatorStyle = .none
@@ -15,9 +17,9 @@ class ProfileTableView: UIViewController {
         tableView.dataSource = self
         tableView.register(MySkillsCell.self, forCellReuseIdentifier: MySkillsCell.reuseID)
         tableView.register(ProfileHeader.self, forHeaderFooterViewReuseIdentifier: ProfileHeader.reuseID)
-        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "standartHeader")
+        tableView.register(CustomHeader.self, forHeaderFooterViewReuseIdentifier: CustomHeader.reuseID)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "standartCell")
-        tableView.backgroundColor = .red
+        tableView.backgroundColor = .systemGray6
         return tableView
     }()
     
@@ -49,13 +51,19 @@ extension ProfileTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 1 type cell
-        if let hobbyCell = tableView.dequeueReusableCell(withIdentifier: MySkillsCell.reuseID, for: indexPath) as? MySkillsCell {
+        if let skills = tableView.dequeueReusableCell(withIdentifier: MySkillsCell.reuseID, for: indexPath) as? MySkillsCell {
             if indexPath.section == 1 {
-                return hobbyCell
+                skills.selectionStyle = .none
+                return skills
             }
         }
         // 2 type cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "standartCell", for: indexPath)
+        var content = cell.defaultContentConfiguration()
+        let text = "Experienced software engineer skilled in developing scalable and maintainable systems"
+        content.attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.helvetica14])
+        cell.contentConfiguration = content
+        cell.selectionStyle = .none
         return cell
 
     }
@@ -65,18 +73,18 @@ extension ProfileTableView: UITableViewDataSource {
 //MARK: UITableViewDelegate
 extension ProfileTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let standartHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "standartHeader")
-        standartHeader?.textLabel?.font = UIFont(name: "Helvetica-Bold", size: 14)
+        guard let standartHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomHeader.reuseID) as? CustomHeader else { return nil}
+        delegateToView = standartHeader
         switch section {
         case 0:
             if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileHeader.reuseID) as? ProfileHeader {
                 return header
             }
         case 1:
-            standartHeader?.textLabel?.text = "Мои навыки"
+            delegateToView?.passInfo(section)
             return standartHeader
         case 2:
-            standartHeader?.textLabel?.text = "О себе"
+            delegateToView?.passInfo(section)
             return standartHeader
         default:
             return nil
@@ -84,7 +92,15 @@ extension ProfileTableView: UITableViewDelegate {
         return nil
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        section == 0 ? 290 : 10
+        section == 0 ? 280 : 35
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        0
     }
 }

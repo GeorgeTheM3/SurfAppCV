@@ -13,7 +13,7 @@ class ProfileHeader: UITableViewHeaderFooterView {
     private lazy var photoImageView: UIImageView = {
         let heightScreen = UIScreen.main.bounds.height
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "avatar")
+        imageView.image = .avatar
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = heightScreen * 0.07
         imageView.clipsToBounds = true
@@ -25,7 +25,7 @@ class ProfileHeader: UITableViewHeaderFooterView {
         label.textAlignment = .center
         label.numberOfLines = 2
         label.text = "Иванов Иван Иванович"
-        label.font = UIFont(name: "Helvetica-Bold", size: 25)
+        label.font = .helvetica25bold
         return label
     }()
     
@@ -33,7 +33,7 @@ class ProfileHeader: UITableViewHeaderFooterView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Middle iOS-разработчик, опыт более 2-х лет"
-        label.font = UIFont(name: "Helvetica", size: 14)
+        label.font = .helvetica14
         return label
     }()
     
@@ -41,14 +41,14 @@ class ProfileHeader: UITableViewHeaderFooterView {
         let label = UILabel()
         label.textAlignment = .center
         label.text = "Воронеж"
-        label.font = UIFont(name: "Helvetica", size: 14)
+        label.font = .helvetica14
         return label
     }()
     
     private lazy var pinImageView: UIImageView = {
         let heightScreen = UIScreen.main.bounds.height
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "geoPin")
+        imageView.image = .geoPin
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -63,9 +63,9 @@ class ProfileHeader: UITableViewHeaderFooterView {
     }
     
     private func setupView() {
-        appendSubviewsToView(views: [photoImageView, nameLabel, descriptionLabel, locationLabel, pinImageView])
+        contentView.appendSubviewsToView(views: [photoImageView, nameLabel, descriptionLabel, locationLabel, pinImageView])
         let screenSize = UIScreen.main.bounds.size
-        subviews.forEach{
+        contentView.subviews.forEach{
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         

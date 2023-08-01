@@ -25,6 +25,8 @@ class CustomHeader: UITableViewHeaderFooterView {
     
     private lazy var editButton: UIButton = {
         let button = UIButton(type: .system)
+        button.setImage(.pencil, for: .normal)
+        button.tintColor = .black
         return button
     }()
     
@@ -44,15 +46,22 @@ class CustomHeader: UITableViewHeaderFooterView {
         }
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             
-            editButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            editButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             editButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             background.widthAnchor.constraint(equalTo: self.widthAnchor),
             background.heightAnchor.constraint(equalTo: self.heightAnchor)
         ])
+    }
+}
+
+extension CustomHeader: DelegateToView {
+    func passInfo<T>(_ info: T) {
+        guard let indexSection = info as? Int else { return }
+        titleLabel.text = indexSection == 1 ? "Мои навыки" : "О себе"
+        editButton.isHidden = indexSection == 1 ? false : true
     }
 }

@@ -17,6 +17,16 @@ extension UIImage {
         guard let image = UIImage(named: "geoPin") else { return UIImage() }
         return image
     }()
+    
+    static let pencil: UIImage = {
+        guard let image = UIImage(named: "pencil") else { return UIImage() }
+        return image
+    }()
+    
+    static let done: UIImage = {
+        guard let image = UIImage(named: "done") else { return UIImage() }
+        return image
+    }()
 }
 
 
