@@ -51,7 +51,7 @@ class MySkillsCell: UITableViewCell {
     }
     
     private func configureHeight() {
-        let addWidth: CGFloat = buttonIsHiddenStatus ? 45 : 70
+        let addWidth: CGFloat = buttonIsHiddenStatus ? 50 : 70
        
         var height:CGFloat = 40
         var widthLine: CGFloat = 0
