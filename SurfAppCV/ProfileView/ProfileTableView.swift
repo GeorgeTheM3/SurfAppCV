@@ -81,10 +81,10 @@ extension ProfileTableView: UITableViewDelegate {
                 return header
             }
         case 1:
-            delegateToView?.passInfo(section)
+            delegateToView?.passToView(section)
             return standartHeader
         case 2:
-            delegateToView?.passInfo(section)
+            delegateToView?.passToView(section)
             return standartHeader
         default:
             return nil

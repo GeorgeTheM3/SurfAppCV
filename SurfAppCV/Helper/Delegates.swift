@@ -8,5 +8,9 @@
 import Foundation
 
 protocol DelegateToView: AnyObject {
-    func passInfo<T>(_ info: T)
+    func passToView<T>(_ info: T)
+}
+
+protocol DelegateToController: AnyObject {
+    func passToController<T>(_ info: T)
 }
