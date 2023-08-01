@@ -20,9 +20,12 @@ class StorageService: StorageServiceProtocol {
     
     func addSkill(_ skill: Skill) {
         let index = storage.userSkills.count - 1
-        if skill.title.count > 25 {
-            let shortTitle = skill.title.prefix(25)
-            storage.userSkills.insert(Skill(title: String(shortTitle + "..."), id: skill.id), at: index)
+        if skill.title.getTextWidth(skill.title) > 300{
+            var editTitle = skill.title
+            while editTitle.getTextWidth(editTitle) > 290 {
+                editTitle.removeLast(3)
+            }
+            storage.userSkills.insert(Skill(title: String(editTitle + "..."), id: skill.id), at: index)
         } else {
             storage.userSkills.insert(skill, at: index)
         }
