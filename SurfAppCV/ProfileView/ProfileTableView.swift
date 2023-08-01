@@ -51,10 +51,12 @@ extension ProfileTableView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 1 type cell
-        if let skills = tableView.dequeueReusableCell(withIdentifier: MySkillsCell.reuseID, for: indexPath) as? MySkillsCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: MySkillsCell.reuseID, for: indexPath) as? MySkillsCell {
             if indexPath.section == 1 {
-                skills.selectionStyle = .none
-                return skills
+                delegateToView = cell
+                delegateToView?.passToView(StorageService.shared.getSkillsList())
+                cell.selectionStyle = .none
+                return cell
             }
         }
         // 2 type cell
