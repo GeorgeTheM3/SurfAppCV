@@ -8,7 +8,7 @@
 import UIKit
 
 struct Skill {
-    let title: String
+    var title: String
     let id: Int
     
     init(title: String, id: Int = Int.random(in: 1...1000000)) {
