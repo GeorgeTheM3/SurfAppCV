@@ -51,14 +51,13 @@ class MySkillsCell: UITableViewCell {
     }
     
     private func configureHeight() {
-        let addWidth: CGFloat = buttonIsHiddenStatus ? 50 : 70
-       
+        let addWidth: CGFloat = buttonIsHiddenStatus ? 45 : 60
         var height:CGFloat = 40
         var widthLine: CGFloat = 0
         var numberLines:CGFloat = 1
         let collectionWidth = UIScreen.main.bounds.width - 40
         for item in skills {
-            let width = CGFloat(Int(String().getTextWidth(item.title) + addWidth))
+            let width = CGFloat(Int(String().getTextWidth(item.title) + addWidth) + 10)
             widthLine += width
             if collectionWidth < widthLine {
                 height += 52
@@ -73,7 +72,6 @@ class MySkillsCell: UITableViewCell {
     
     private func setupView() {
         contentView.addSubview(collectionView)
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
