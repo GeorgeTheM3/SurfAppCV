@@ -107,6 +107,12 @@ extension MySkillsCell: UICollectionViewDelegateFlowLayout {
         let height = CGFloat(40)
         return CGSize(width: width, height: height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if skills[indexPath.item].title == "+" {
+            delegateToConroller?.passToController(self)
+        }
+    }
 }
 
 extension MySkillsCell: DelegateToView {

@@ -19,7 +19,8 @@ class StorageService: StorageServiceProtocol {
     }
     
     func addSkill(_ skill: Skill) {
-        storage.userSkills.append(skill)
+        let index = storage.userSkills.count - 1
+        storage.userSkills.insert(skill, at: index)
     }
     
     func addPlusButton() {

@@ -128,5 +128,26 @@ extension ProfileTableView: DelegateToController {
             hideDeleteSkillButton ? storageService.removePlusButton() : storageService.addPlusButton()
             tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
         }
+        
+        if let _ = info as? MySkillsCell {
+            showAlertController()
+        }
+    }
+}
+
+//MARK: AlertCOntroller
+extension ProfileTableView {
+    private func showAlertController() {
+        let alertController = UIAlertController(title: "Добавление навыка", message: "Введите название навыка которым вы владеете", preferredStyle: .alert)
+        alertController.addTextField()
+        let cancelAction = UIAlertAction(title: "Отменить", style: .default)
+        let addAction = UIAlertAction(title: "Добавить", style: .cancel) { _ in
+            guard let text = alertController.textFields?.first?.text else { return }
+            self.storageService.addSkill(Skill(title: text))
+            self.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+        }
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
 }
