@@ -16,7 +16,6 @@ class SkillCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.tintColor = .red
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
-//        button.addTarget(self, action: #selector(actionButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(deleteAction), for: .touchUpInside)
         return button
@@ -34,11 +33,6 @@ class SkillCell: UICollectionViewCell {
         return label
     }()
     
-    @objc private func actionButton() {
-        tapButtonAnimation()
-        
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(skillLabel)
@@ -48,14 +42,6 @@ class SkillCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func tapButtonAnimation() {
-        UIView.animate(withDuration: 0.2) {
-            self.skillLabel.alpha = 0
-            self.deleteButton.alpha = 0
-        }
-        self.skillLabel.layoutIfNeeded()
     }
     
     private func setConstraintsSubviews() {
@@ -88,6 +74,6 @@ extension SkillCell: DelegateToView {
 
 extension SkillCell {
     @objc private func deleteAction() {
-        passInfoBack?.passToController(deleteButton.tag)
+        passInfoBack?.passToController(self.deleteButton.tag)
     }
 }

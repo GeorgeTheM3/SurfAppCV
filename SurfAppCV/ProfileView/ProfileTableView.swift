@@ -10,6 +10,8 @@ import UIKit
 class ProfileTableView: UIViewController {
     private weak var delegateToView: DelegateToView?
     
+    private var storageService = StorageService()
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height), style: .grouped)
         tableView.separatorStyle = .none
@@ -53,8 +55,9 @@ extension ProfileTableView: UITableViewDataSource {
         // 1 type cell
         if let cell = tableView.dequeueReusableCell(withIdentifier: MySkillsCell.reuseID, for: indexPath) as? MySkillsCell {
             if indexPath.section == 1 {
+                cell.delegateToConroller = self
                 delegateToView = cell
-                delegateToView?.passToView(StorageService.shared.getSkillsList())
+                delegateToView?.passToView(storageService.getSkillsList())
                 cell.selectionStyle = .none
                 return cell
             }
@@ -104,5 +107,15 @@ extension ProfileTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         0
+    }
+}
+
+extension ProfileTableView: DelegateToController {
+    func passToController<T>(_ info: T) {
+        if let skillID = info as? Int {
+            storageService.removeSkill(skillID)
+            tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+//            tableView.reloadData()
+        }
     }
 }

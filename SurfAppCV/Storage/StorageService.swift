@@ -8,8 +8,6 @@
 import UIKit
 
 class StorageService: StorageServiceProtocol {
-    static let shared = StorageService()
-    
     private let storage = LocalStorage()
     
     func getSkillsList() -> [Skill] {
@@ -23,7 +21,6 @@ class StorageService: StorageServiceProtocol {
     func addSkill(_ skill: Skill) {
         storage.userSkills.append(skill)
     }
-
 }
 
 

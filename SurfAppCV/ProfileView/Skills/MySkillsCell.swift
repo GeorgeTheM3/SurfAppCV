@@ -11,10 +11,15 @@ class MySkillsCell: UITableViewCell {
     static let reuseID = "MySkillsCell"
     
     private weak var delegateToView: DelegateToView?
+    weak var delegateToConroller: DelegateToController?
     
     private var buttonIsHiddenStatus = false
     
-    private var skills: [Skill] = []
+    private var skills: [Skill] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     private lazy var collectionView: UICollectionView = {
         let flowLayout = LeftAlignedCollectionViewFlowLayout()
@@ -47,6 +52,7 @@ class MySkillsCell: UITableViewCell {
     
     private func configureHeight() {
         let addWidth: CGFloat = buttonIsHiddenStatus ? 40 : 70
+       
         var height:CGFloat = 40
         var widthLine: CGFloat = 0
         var numberLines:CGFloat = 1
@@ -61,6 +67,7 @@ class MySkillsCell: UITableViewCell {
             }
         }
         let result = (numberLines * 52 - 12)
+        collectionView.removeConstraints(collectionView.constraints)
         collectionView.heightAnchor.constraint(equalToConstant: result).isActive = true
     }
     
@@ -115,7 +122,7 @@ extension MySkillsCell: DelegateToController {
     func passToController<T>(_ info: T) {
         if let skillID = info as? Int {
             skills.removeAll(where: {$0.id == skillID})
-            collectionView.reloadData()
+            delegateToConroller?.passToController(skillID)
         }
     }
 }
