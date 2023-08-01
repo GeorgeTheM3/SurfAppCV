@@ -11,4 +11,6 @@ protocol StorageServiceProtocol {
     func getSkillsList() -> [Skill]
     func removeSkill(_ id: Int)
     func addSkill(_ skill: Skill)
+    func addPlusButton()
+    func removePlusButton()
 }

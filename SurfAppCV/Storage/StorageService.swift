@@ -21,6 +21,15 @@ class StorageService: StorageServiceProtocol {
     func addSkill(_ skill: Skill) {
         storage.userSkills.append(skill)
     }
+    
+    func addPlusButton() {
+        storage.userSkills.append(Skill(title: "+"))
+    }
+    
+    func removePlusButton() {
+        storage.userSkills.removeAll(where: {$0.title == "+"})
+    }
+    
 }
 
 

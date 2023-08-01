@@ -125,6 +125,7 @@ extension ProfileTableView: DelegateToController {
         
         if let _ = info as? CustomHeader {
             hideDeleteSkillButton = !hideDeleteSkillButton
+            hideDeleteSkillButton ? storageService.removePlusButton() : storageService.addPlusButton()
             tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
         }
     }

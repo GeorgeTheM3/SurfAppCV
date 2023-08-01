@@ -67,7 +67,9 @@ extension SkillCell: DelegateToView {
         }
         
         if let status = info as? Bool {
+            guard skillLabel.text != "+" else { return deleteButton.isHidden = true }
             deleteButton.isHidden = status
+            
         }
     }
 }

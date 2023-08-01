@@ -72,7 +72,6 @@ extension CustomHeader: DelegateToView {
         guard let indexSection = info as? Int else { return }
         titleLabel.text = indexSection == 1 ? "Мои навыки" : "О себе"
         editButton.isHidden = indexSection == 1 ? false : true
-        
     }
 }
 

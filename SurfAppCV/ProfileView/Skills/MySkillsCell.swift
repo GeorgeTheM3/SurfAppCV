@@ -118,8 +118,6 @@ extension MySkillsCell: DelegateToView {
         
         if let buttonStatus = info as? Bool {
             buttonIsHiddenStatus = buttonStatus
-//            delegateToConroller?.passToController(buttonStatus)
-//            collectionView.reloadData()
         }
     }
 }
