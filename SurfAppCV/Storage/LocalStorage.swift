@@ -25,5 +25,7 @@ class LocalStorage {
                                Skill(title: "KVO"),
                                Skill(title: "KVC"),
                                Skill(title: "WorkManager"),
-                               Skill(title: "Programmer")]
+                               Skill(title: "Programmer"),
+                               Skill(title: "Realm"),
+                               Skill(title: "DI Injection")]
 }

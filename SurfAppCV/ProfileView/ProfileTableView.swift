@@ -140,7 +140,9 @@ extension ProfileTableView: DelegateToController {
 extension ProfileTableView {
     private func showAlertController() {
         let alertController = UIAlertController(title: "Добавление навыка", message: "Введите название навыка которым вы владеете", preferredStyle: .alert)
-        alertController.addTextField()
+        alertController.addTextField { textField in
+            textField.placeholder = "Введите название"
+        }
         let cancelAction = UIAlertAction(title: "Отменить", style: .cancel)
         let addAction = UIAlertAction(title: "Добавить", style: .default) { _ in
             guard let text = alertController.textFields?.first?.text else { return }

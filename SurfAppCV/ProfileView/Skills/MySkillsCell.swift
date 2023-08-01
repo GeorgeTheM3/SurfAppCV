@@ -51,7 +51,7 @@ class MySkillsCell: UITableViewCell {
     }
     
     private func configureHeight() {
-        let addWidth: CGFloat = buttonIsHiddenStatus ? 40 : 70
+        let addWidth: CGFloat = buttonIsHiddenStatus ? 45 : 70
        
         var height:CGFloat = 40
         var widthLine: CGFloat = 0
@@ -104,7 +104,7 @@ extension MySkillsCell: UICollectionViewDataSource {
 extension MySkillsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let string = skills[indexPath.row].title
-        let addWidth: CGFloat = buttonIsHiddenStatus ? 40 : 60
+        let addWidth: CGFloat = buttonIsHiddenStatus ? 45 : 60
         let width = CGFloat(Int(String().getTextWidth(string)) + Int(addWidth))
         let height = CGFloat(40)
         return CGSize(width: width, height: height)
