@@ -57,7 +57,7 @@ class MySkillsCell: UITableViewCell {
         var numberLines:CGFloat = 1
         let collectionWidth = UIScreen.main.bounds.width - 40
         for item in skills {
-            let width = CGFloat(Int(String().getTextWidth(item.title) + addWidth) + 10)
+            let width = CGFloat((String().getTextWidth(item.title) + addWidth) + 6.0)
             widthLine += width
             if collectionWidth < widthLine {
                 height += 52
@@ -102,8 +102,8 @@ extension MySkillsCell: UICollectionViewDataSource {
 extension MySkillsCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let string = skills[indexPath.row].title
-        let addWidth: CGFloat = buttonIsHiddenStatus ? 45 : 60
-        let width = CGFloat(Int(String().getTextWidth(string)) + Int(addWidth))
+        let addWidth: CGFloat = buttonIsHiddenStatus ? 45.0 : 60.0
+        let width = CGFloat((String().getTextWidth(string)) + addWidth)
         let height = CGFloat(40)
         return CGSize(width: width, height: height)
     }
